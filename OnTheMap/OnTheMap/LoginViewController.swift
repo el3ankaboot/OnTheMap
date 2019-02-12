@@ -46,6 +46,14 @@ class LoginViewController: UIViewController {
              showLoginFailure(message: error?.localizedDescription ?? "Wrong Username or password")
             // I made the default case to be wrong username or password , because in udacity client class , when there is a problem in user credentials I return success false and error nil
             //That's why if we entered the else part (success = false) when the error is nil , the user credentials is the error.
+            
+            DispatchQueue.main.async {
+                self.usernameTextField.isEnabled = true
+                self.passwordTextField.isEnabled = true
+                self.loginButton.isEnabled = true
+                self.signupButton.isEnabled = true
+            }
+            
         }
     }
     
