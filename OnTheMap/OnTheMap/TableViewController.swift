@@ -51,6 +51,11 @@ class TableViewController : UIViewController , UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if let theURL = self.students[(indexPath as NSIndexPath).row].mediaURL{
+            if let url = URL(string: theURL) {
+                UIApplication.shared.open(url, options: [:])
+            }
+        }
     }
     
     
