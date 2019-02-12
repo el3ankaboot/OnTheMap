@@ -20,6 +20,7 @@ class ParseClient {
         case limit(Int)
         case skip(Int, Int)
         case order(Bool,String)     //If Bool is true : descending (add -ve sign)
+        case Where(String)
         
         var stringValue: String {
             switch self {
@@ -27,6 +28,7 @@ class ParseClient {
             case .limit(let limitTo) : return ParseClient.Endpoints.base + "?limit=\(limitTo)"
             case .skip(let limitTo , let skipBy) : return ParseClient.Endpoints.base + "?limit=\(limitTo)&&skip=\(skipBy)"
             case .order(let descending, let orderBy) : return ParseClient.Endpoints.base + "?order=" + ((descending) ? "-" : "") + "\(orderBy)"
+            case.Where(let uniqueID) : return ParseClient.Endpoints.base + "/StudentLocation?where=%7B%22uniqueKey%22%3A%22\(uniqueID)%22%7D"
                 
             }
         }
@@ -49,6 +51,29 @@ class ParseClient {
             let decoder = JSONDecoder()
             do {
                 let responseObject = try decoder.decode(result.self, from: data)
+                handler(responseObject,nil)
+            }
+            catch {
+                handler(nil,error)
+            }
+        }
+        task.resume()
+        
+    }
+    
+    class func getStudentLocation(uniqueID : String , handler : @escaping (Student?, Error?) -> Void){
+        var request = URLRequest(url:Endpoints.Where(uniqueID).url)
+        request.addValue(self.appID, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(self.apikey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                handler(nil,error)
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let responseObject = try decoder.decode(Student.self, from: data)
                 handler(responseObject,nil)
             }
             catch {

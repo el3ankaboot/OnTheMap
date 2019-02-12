@@ -28,6 +28,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func loadLocation(uniqueID: String , handler: @escaping (Student?, Error?) -> Void) {
+        ParseClient.getStudentLocation(uniqueID: uniqueID) { (data, error) in
+            if error != nil {
+                print(error)
+                handler(nil,error)
+                
+            }
+            else {
+                handler(data,nil)
+            }
+            
+            
+        }
+    }
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
