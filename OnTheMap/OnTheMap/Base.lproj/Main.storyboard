@@ -51,10 +51,16 @@
                                                         <state key="normal" title="LOG IN">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vzk-l1-L7G"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fG-C1-WPB">
                                                         <rect key="frame" x="5" y="310" width="271" height="30"/>
                                                         <state key="normal" title="Don't Have a Udacity account ? Sign up"/>
+                                                        <connections>
+                                                            <action selector="signupPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8eE-xQ-o14"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -103,6 +109,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.13343328335833"/>
+        </scene>
+        <!--Table-->
+        <scene sceneID="5KS-pB-JJ4">
+            <objects>
+                <viewController id="csp-Q9-HYL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Crf-Q0-VLG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="9s1-oz-na5"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Table" id="PPO-ZB-FW6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="feY-4m-ue8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1942" y="462"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="kCA-Yv-dWM">
+            <objects>
+                <viewController id="L5w-j8-enI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZL3-ht-08H">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="VZd-gh-YF1"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" id="DJa-5T-dsd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xkn-Eh-t0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1942" y="-203"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="aew-gv-wvP">
+            <objects>
+                <tabBarController id="b0r-BL-KMy" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rHt-js-jJg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="L5w-j8-enI" kind="relationship" relationship="viewControllers" id="bso-yw-Ohb"/>
+                        <segue destination="csp-Q9-HYL" kind="relationship" relationship="viewControllers" id="lln-a7-1Nk"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="afW-Mn-ISU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="989" y="130"/>
         </scene>
     </scenes>
     <resources>

@@ -20,7 +20,18 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
     }
-
-
+    
+    //MARK: Actions
+    
+    @IBAction func loginPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func signupPressed(_ sender: Any) {
+        if let url = URL(string: "https://auth.udacity.com/sign-up") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
 }
 
