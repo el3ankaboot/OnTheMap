@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
         }
+       
     }
     
     func loadLocation(uniqueID: String , handler: @escaping (Student?, Error?) -> Void) {

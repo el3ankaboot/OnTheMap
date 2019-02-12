@@ -129,7 +129,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="XSS-ZY-wfV" detailTextLabel="wF4-9e-Ql7" imageView="tuh-Rd-E93" style="IBUITableViewCellStyleSubtitle" id="tI8-v6-sAk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="studentReusable" textLabel="XSS-ZY-wfV" detailTextLabel="wF4-9e-Ql7" imageView="tuh-Rd-E93" style="IBUITableViewCellStyleSubtitle" id="tI8-v6-sAk">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tI8-v6-sAk" id="IKs-mf-0wo">
@@ -177,6 +177,9 @@
                         <viewLayoutGuide key="safeArea" id="9s1-oz-na5"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Table" id="PPO-ZB-FW6"/>
+                    <connections>
+                        <outlet property="tableView" destination="023-GH-z7o" id="ghH-vH-KxQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feY-4m-ue8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

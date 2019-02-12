@@ -17,10 +17,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signupButton: UIButton!
     
     
+  let appDelegate = UIApplication.shared.delegate as! AppDelegate
  
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        appDelegate.loadLocations()
+        
         
     }
     
