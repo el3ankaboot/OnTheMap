@@ -12,7 +12,7 @@ import Foundation
 class UdacityClient {
     
     struct UdacityAuth {
-        static var accountId = 0
+        static var accountId = ""
         static var sessionId = ""
     }
     
@@ -61,6 +61,15 @@ class UdacityClient {
                 }
                 
                 completion(true,nil)
+                
+                let session = json ["session"] as! [String:Any]
+                if let id = session["id"]{
+                    UdacityAuth.sessionId = id as! String
+                }
+                let account = json ["account"] as! [String:Any]
+                if let key = account["key"]{
+                    UdacityAuth.accountId = key as! String
+                }
                 
             }
             catch {
