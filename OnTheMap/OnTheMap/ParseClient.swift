@@ -22,6 +22,7 @@ class ParseClient {
         case order(Bool,String)     //If Bool is true : descending (add -ve sign)
         case Where(String)
         case post
+        case put(String)
         
         var stringValue: String {
             switch self {
@@ -31,6 +32,7 @@ class ParseClient {
             case .order(let descending, let orderBy) : return ParseClient.Endpoints.base + "?order=" + ((descending) ? "-" : "") + "\(orderBy)"
             case .Where(let uniqueID) : return ParseClient.Endpoints.base + "/StudentLocation?where=%7B%22uniqueKey%22%3A%22\(uniqueID)%22%7D"
             case .post : return ParseClient.Endpoints.base + "/StudentLocation"
+            case .put(let objectID) : return ParseClient.Endpoints.base + "/StudentLocation/" + objectID
                 
             }
         }
@@ -89,6 +91,30 @@ class ParseClient {
     class func postStudentLocation (student: Student , handler : @escaping (Data? , Error?)-> Void){
         var request = URLRequest(url:Endpoints.post.url)
         request.httpMethod = "POST"
+        request.addValue(appID, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(apikey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        do{
+            request.httpBody = try JSONEncoder().encode(student)
+        }
+        catch {
+            print(error)
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil {
+                handler(nil,error)
+                return
+            }
+            handler(data,nil)
+            print(String(data: data!, encoding: .utf8)!)
+        }
+        task.resume()
+    }
+    
+    class func putStudentLocation (student: Student , handler : @escaping (Data? , Error?)-> Void){
+        var request = URLRequest(url:Endpoints.put(student.objectId!).url)
+        request.httpMethod = "PUT"
         request.addValue(appID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(apikey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
