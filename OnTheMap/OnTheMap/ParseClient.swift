@@ -83,4 +83,28 @@ class ParseClient {
         task.resume()
         
     }
+    
+    class func postStudentLocation (student: Student , handler : @escaping (Data? , Error?)-> Void){
+        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        request.httpMethod = "POST"
+        request.addValue(appID, forHTTPHeaderField: "X-Parse-Application-Id")
+        request.addValue(apikey, forHTTPHeaderField: "X-Parse-REST-API-Key")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        do{
+            request.httpBody = try JSONEncoder().encode(student)
+        }
+        catch {
+            print(error)
+        }
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil {
+                handler(nil,error)
+                return
+            }
+            handler(data,nil)
+            print(String(data: data!, encoding: .utf8)!)
+        }
+        task.resume()
+    }
 }

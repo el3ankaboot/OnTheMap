@@ -12,6 +12,8 @@ struct result: Codable {
     var results : [Student]
 }
 
+
+
 struct Student :Codable {
     var createdAt : String?
     var firstName : String?
@@ -23,4 +25,15 @@ struct Student :Codable {
     var objectId : String?
     var uniqueKey : String?
     var updatedAt : String?
+    
+    init( firstName: String , lastName: String , latitude: Double , longitude: Double , mapString: String , mediaURL : String){
+       
+        self.firstName = firstName
+        self.lastName = lastName
+        self.latitude = latitude
+        self.longitude = longitude
+        self.mapString = mapString
+        self.mediaURL = mediaURL
+        
+    }
 }
