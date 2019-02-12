@@ -104,7 +104,7 @@
                         <outlet property="passwordTextField" destination="oMN-m6-Da6" id="Q4i-Ms-sBV"/>
                         <outlet property="signupButton" destination="6fG-C1-WPB" id="CaJ-4Y-PfW"/>
                         <outlet property="usernameTextField" destination="fE6-6F-OFe" id="Yas-yH-tdK"/>
-                        <segue destination="b0r-BL-KMy" kind="modal" identifier="completeLogin" id="D28-ah-3hk"/>
+                        <segue destination="b0r-BL-KMy" kind="presentation" identifier="completeLogin" id="ko9-Ag-9zt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
         loginButton.isEnabled = false
         signupButton.isEnabled = false
         
+        
         UdacityClient.login(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "", completion: handleLoginResponse(success:error:))
         
         
@@ -37,11 +38,28 @@ class LoginViewController: UIViewController {
     
     func handleLoginResponse(success: Bool, error: Error?) {
         if success {
-            performSegue(withIdentifier: "completeLogin", sender: nil)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "completeLogin", sender: nil)
+            }
         } else {
             
+             showLoginFailure(message: error?.localizedDescription ?? "Wrong Username or password")
+            // I made the default case to be wrong username or password , because in udacity client class , when there is a problem in user credentials I return success false and error nil
+            //That's why if we entered the else part (success = false) when the error is nil , the user credentials is the error.
         }
     }
+    
+    func showLoginFailure(message: String) {
+         DispatchQueue.main.async {
+            let alertVC = UIAlertController(title: "Login Failed", message: message, preferredStyle: .alert)
+            alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+       
+             self.show(alertVC, sender: nil)
+        }
+       
+    }
+    
+    
     
     @IBAction func signupPressed(_ sender: Any) {
         if let url = URL(string: "https://auth.udacity.com/sign-up") {

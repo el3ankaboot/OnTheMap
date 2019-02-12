@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class UdacityClient {
     
     struct UdacityAuth {
@@ -42,13 +43,31 @@ class UdacityClient {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             if error != nil {
+                
                 completion(false,error)
                 return
             }
-            let range = Range(5..<data!.count)
+            let range = 5..<data!.count
             let newData = data?.subdata(in: range)
-            completion(true,nil)
+            
             print(String(data: newData!, encoding: .utf8)!)
+            do {
+                
+                let json = try JSONSerialization.jsonObject(with: newData!, options: []) as! [String: Any]
+                if let _ = json["error"]{
+                    
+                    completion(false, nil)
+                    return
+                }
+                
+                completion(true,nil)
+                
+            }
+            catch {
+                completion(false,error)
+            }
+            
+            
         }
         task.resume()
     }
