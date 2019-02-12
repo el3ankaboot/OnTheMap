@@ -21,6 +21,7 @@ class ParseClient {
         case skip(Int, Int)
         case order(Bool,String)     //If Bool is true : descending (add -ve sign)
         case Where(String)
+        case post
         
         var stringValue: String {
             switch self {
@@ -28,7 +29,8 @@ class ParseClient {
             case .limit(let limitTo) : return ParseClient.Endpoints.base + "?limit=\(limitTo)"
             case .skip(let limitTo , let skipBy) : return ParseClient.Endpoints.base + "?limit=\(limitTo)&&skip=\(skipBy)"
             case .order(let descending, let orderBy) : return ParseClient.Endpoints.base + "?order=" + ((descending) ? "-" : "") + "\(orderBy)"
-            case.Where(let uniqueID) : return ParseClient.Endpoints.base + "/StudentLocation?where=%7B%22uniqueKey%22%3A%22\(uniqueID)%22%7D"
+            case .Where(let uniqueID) : return ParseClient.Endpoints.base + "/StudentLocation?where=%7B%22uniqueKey%22%3A%22\(uniqueID)%22%7D"
+            case .post : return ParseClient.Endpoints.base + "/StudentLocation"
                 
             }
         }
@@ -85,7 +87,7 @@ class ParseClient {
     }
     
     class func postStudentLocation (student: Student , handler : @escaping (Data? , Error?)-> Void){
-        var request = URLRequest(url: URL(string: "https://parse.udacity.com/parse/classes/StudentLocation")!)
+        var request = URLRequest(url:Endpoints.post.url)
         request.httpMethod = "POST"
         request.addValue(appID, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(apikey, forHTTPHeaderField: "X-Parse-REST-API-Key")
