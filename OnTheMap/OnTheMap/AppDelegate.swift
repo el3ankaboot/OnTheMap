@@ -13,6 +13,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var students = [Student]()
+    
+    func loadLocations(){
+        ParseClient.getLocations { (data, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+            else {
+                self.students = data!.results
+            }
+            
+        }
+    }
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
