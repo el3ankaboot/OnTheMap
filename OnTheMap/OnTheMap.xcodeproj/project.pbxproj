@@ -15,6 +15,7 @@
 		5EE9E7672212DEB700369F05 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE9E7662212DEB700369F05 /* UdacityClient.swift */; };
 		5EE9E769221309C100369F05 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE9E768221309C100369F05 /* ParseClient.swift */; };
 		5EE9E76B22130F8F00369F05 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE9E76A22130F8F00369F05 /* Student.swift */; };
+		5EE9E76D2213405500369F05 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE9E76C2213405500369F05 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5EE9E7662212DEB700369F05 /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		5EE9E768221309C100369F05 /* ParseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		5EE9E76A22130F8F00369F05 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		5EE9E76C2213405500369F05 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				5EE9E7662212DEB700369F05 /* UdacityClient.swift */,
 				5EE9E7562212D53C00369F05 /* LoginViewController.swift */,
 				5EE9E76A22130F8F00369F05 /* Student.swift */,
+				5EE9E76C2213405500369F05 /* TableViewController.swift */,
 				5EE9E7582212D53C00369F05 /* Main.storyboard */,
 				5EE9E75B2212D53D00369F05 /* Assets.xcassets */,
 				5EE9E75D2212D53D00369F05 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EE9E7672212DEB700369F05 /* UdacityClient.swift in Sources */,
+				5EE9E76D2213405500369F05 /* TableViewController.swift in Sources */,
 				5EE9E7572212D53C00369F05 /* LoginViewController.swift in Sources */,
 				5EE9E769221309C100369F05 /* ParseClient.swift in Sources */,
 				5EE9E76B22130F8F00369F05 /* Student.swift in Sources */,
