@@ -24,7 +24,23 @@ class LoginViewController: UIViewController {
     //MARK: Actions
     
     @IBAction func loginPressed(_ sender: Any) {
+        usernameTextField.isEnabled = false
+        passwordTextField.isEnabled = false
+        loginButton.isEnabled = false
+        signupButton.isEnabled = false
         
+        UdacityClient.login(username: usernameTextField.text ?? "", password: passwordTextField.text ?? "", completion: handleLoginResponse(success:error:))
+        
+        
+        
+    }
+    
+    func handleLoginResponse(success: Bool, error: Error?) {
+        if success {
+            performSegue(withIdentifier: "completeLogin", sender: nil)
+        } else {
+            
+        }
     }
     
     @IBAction func signupPressed(_ sender: Any) {

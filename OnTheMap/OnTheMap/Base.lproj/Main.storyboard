@@ -104,11 +104,12 @@
                         <outlet property="passwordTextField" destination="oMN-m6-Da6" id="Q4i-Ms-sBV"/>
                         <outlet property="signupButton" destination="6fG-C1-WPB" id="CaJ-4Y-PfW"/>
                         <outlet property="usernameTextField" destination="fE6-6F-OFe" id="Yas-yH-tdK"/>
+                        <segue destination="b0r-BL-KMy" kind="modal" identifier="completeLogin" id="D28-ah-3hk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.13343328335833"/>
+            <point key="canvasLocation" x="33" y="130"/>
         </scene>
         <!--Table-->
         <scene sceneID="5KS-pB-JJ4">
