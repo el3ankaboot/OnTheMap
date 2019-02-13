@@ -15,5 +15,19 @@ class AddLocationViewController : UIViewController {
     var theStudent : Student!
     
     
+    @IBAction func finish(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        theStudent = appDelegate.theStudent
+        appDelegate.putLocation(student: theStudent) { (data, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+    }
+    
+    
     
 }

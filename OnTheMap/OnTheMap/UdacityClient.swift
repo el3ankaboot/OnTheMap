@@ -93,7 +93,7 @@ class UdacityClient {
             }
             let range = 5..<data!.count
             let newData = data?.subdata(in: range)
-            print(String(data: newData!, encoding: .utf8)!)
+//            print(String(data: newData!, encoding: .utf8)!)
         }
         task.resume()
         

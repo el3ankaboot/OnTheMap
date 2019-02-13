@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var students = [Student]()
+    var theStudent : Student!
     
     func loadLocations(){
         ParseClient.getLocations { (data, error) in
