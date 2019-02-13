@@ -224,19 +224,90 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="A3T-DK-L4H">
+                                <rect key="frame" x="161.5" y="87" width="52" height="67"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="VCI-aW-LEb">
+                                <rect key="frame" x="0.0" y="202" width="375" height="84"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sok-2u-SvV" userLabel="Location">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E20-Nn-5Tw" userLabel="URL">
+                                        <rect key="frame" x="0.0" y="54" width="375" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1I-ju-MtD">
+                                <rect key="frame" x="0.0" y="350" width="375" height="28"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="ZLL-dw-8ya"/>
+                                </constraints>
+                                <state key="normal" title="FIND LOCATION">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="findLocation:" destination="aHA-U2-Hi6" eventType="touchUpInside" id="H6Y-I6-iEH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="VCI-aW-LEb" firstAttribute="top" secondItem="A3T-DK-L4H" secondAttribute="bottom" constant="48" id="IHk-Qz-BEu"/>
+                            <constraint firstItem="A3T-DK-L4H" firstAttribute="top" secondItem="QQx-J9-U9g" secondAttribute="bottom" constant="23" id="L4n-AO-Isx"/>
+                            <constraint firstItem="F1I-ju-MtD" firstAttribute="leading" secondItem="wed-RS-17m" secondAttribute="leading" id="Tee-fw-oeV"/>
+                            <constraint firstItem="VCI-aW-LEb" firstAttribute="width" secondItem="ifB-92-yOm" secondAttribute="width" id="Wrn-r1-Pw6"/>
+                            <constraint firstItem="VCI-aW-LEb" firstAttribute="leading" secondItem="QQx-J9-U9g" secondAttribute="leading" id="ZLc-qB-BRh"/>
+                            <constraint firstItem="F1I-ju-MtD" firstAttribute="top" secondItem="VCI-aW-LEb" secondAttribute="bottom" constant="64" id="hlB-lV-TyS"/>
                             <constraint firstItem="QQx-J9-U9g" firstAttribute="leading" secondItem="wed-RS-17m" secondAttribute="leading" id="kPs-Nt-UyZ"/>
+                            <constraint firstItem="wed-RS-17m" firstAttribute="trailing" secondItem="F1I-ju-MtD" secondAttribute="trailing" id="lnl-bm-R3Q"/>
                             <constraint firstItem="QQx-J9-U9g" firstAttribute="trailing" secondItem="wed-RS-17m" secondAttribute="trailing" id="tAO-cP-VZp"/>
+                            <constraint firstItem="A3T-DK-L4H" firstAttribute="centerX" secondItem="wed-RS-17m" secondAttribute="centerX" id="wtO-Ps-Bw0"/>
                             <constraint firstItem="QQx-J9-U9g" firstAttribute="top" secondItem="wed-RS-17m" secondAttribute="top" id="ycD-Ig-BuX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wed-RS-17m"/>
                     </view>
+                    <connections>
+                        <outlet property="locationText" destination="Sok-2u-SvV" id="KmW-5E-6yA"/>
+                        <outlet property="urlText" destination="E20-Nn-5Tw" id="BGb-y6-Pee"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2f-Rr-9MT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3237" y="89"/>
+            <point key="canvasLocation" x="3236" y="88.605697151424295"/>
+        </scene>
+        <!--Add Location View Controller-->
+        <scene sceneID="h56-jN-aX9">
+            <objects>
+                <viewController id="egJ-Pe-ah8" customClass="AddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hRF-Cz-vZ4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uMm-hH-I9d">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uMm-hH-I9d" firstAttribute="leading" secondItem="ehJ-Ge-8uI" secondAttribute="leading" id="0KY-nI-gtO"/>
+                            <constraint firstItem="uMm-hH-I9d" firstAttribute="top" secondItem="ehJ-Ge-8uI" secondAttribute="top" id="Qwy-Gf-ea3"/>
+                            <constraint firstItem="uMm-hH-I9d" firstAttribute="bottom" secondItem="ehJ-Ge-8uI" secondAttribute="bottom" id="ZX5-KL-8gC"/>
+                            <constraint firstItem="uMm-hH-I9d" firstAttribute="trailing" secondItem="ehJ-Ge-8uI" secondAttribute="trailing" id="pXX-Qe-o4H"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ehJ-Ge-8uI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adS-Uh-VB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4079.1999999999998" y="88.605697151424295"/>
         </scene>
         <!--Map-->
         <scene sceneID="kCA-Yv-dWM">
@@ -315,6 +386,7 @@
     </scenes>
     <resources>
         <image name="icon_pin" width="24" height="24"/>
+        <image name="icon_world" width="52" height="67"/>
         <image name="udacityLogo" width="62" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
