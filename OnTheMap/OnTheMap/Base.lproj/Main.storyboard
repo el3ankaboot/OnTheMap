@@ -125,7 +125,11 @@
                                     <navigationItem title="On The Map" id="h0U-ln-jlo">
                                         <rightBarButtonItems>
                                             <barButtonItem style="plain" systemItem="add" id="sZo-bP-qEL"/>
-                                            <barButtonItem style="plain" systemItem="refresh" id="LTg-G7-CUz"/>
+                                            <barButtonItem style="plain" systemItem="refresh" id="LTg-G7-CUz">
+                                                <connections>
+                                                    <action selector="refresh:" destination="wzs-Gf-teD" id="qt8-0p-egv"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -187,13 +191,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feY-4m-ue8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wzs-Gf-teD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1941.5999999999999" y="461.91904047976016"/>
         </scene>
         <!--Map-->
         <scene sceneID="kCA-Yv-dWM">
             <objects>
-                <viewController id="L5w-j8-enI" sceneMemberID="viewController">
+                <viewController id="L5w-j8-enI" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZL3-ht-08H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -204,13 +209,20 @@
                                     <navigationItem title="On The Map" id="SZ5-I5-eqV">
                                         <rightBarButtonItems>
                                             <barButtonItem style="plain" systemItem="add" id="ucN-O8-HF1"/>
-                                            <barButtonItem style="plain" systemItem="refresh" id="GKX-MN-7fC"/>
+                                            <barButtonItem style="plain" systemItem="refresh" id="GKX-MN-7fC">
+                                                <connections>
+                                                    <action selector="refresh:" destination="L5w-j8-enI" id="twk-mj-ZRJ"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eqS-PA-8xO">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="L5w-j8-enI" id="wMK-2h-q7y"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -226,6 +238,9 @@
                         <viewLayoutGuide key="safeArea" id="VZd-gh-YF1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="DJa-5T-dsd"/>
+                    <connections>
+                        <outlet property="mapView" destination="eqS-PA-8xO" id="rMU-gv-8Rl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xkn-Eh-t0l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
