@@ -58,12 +58,11 @@ class TableViewController : UIViewController , UITableViewDelegate, UITableViewD
         }
     }
     
-    @IBAction func informationPost(_ sender: Any) {
-    }
-    
+
     
     @IBAction func refresh(_ sender: Any) {
         self.appDelegate.loadLocations()
+        tableView.reloadData()
     }
     
     

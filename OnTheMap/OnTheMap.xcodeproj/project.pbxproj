@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E05073422143454001C9177 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E05073322143454001C9177 /* MapViewController.swift */; };
+		5E050736221444B0001C9177 /* PostInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E050735221444B0001C9177 /* PostInformationViewController.swift */; };
 		5EE9E7552212D53C00369F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE9E7542212D53C00369F05 /* AppDelegate.swift */; };
 		5EE9E7572212D53C00369F05 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE9E7562212D53C00369F05 /* LoginViewController.swift */; };
 		5EE9E75A2212D53C00369F05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE9E7582212D53C00369F05 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		5E05073322143454001C9177 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		5E050735221444B0001C9177 /* PostInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInformationViewController.swift; sourceTree = "<group>"; };
 		5EE9E7512212D53C00369F05 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE9E7542212D53C00369F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EE9E7562212D53C00369F05 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -67,10 +69,11 @@
 				5EE9E7542212D53C00369F05 /* AppDelegate.swift */,
 				5EE9E768221309C100369F05 /* ParseClient.swift */,
 				5EE9E7662212DEB700369F05 /* UdacityClient.swift */,
-				5E05073322143454001C9177 /* MapViewController.swift */,
-				5EE9E7562212D53C00369F05 /* LoginViewController.swift */,
 				5EE9E76A22130F8F00369F05 /* Student.swift */,
+				5EE9E7562212D53C00369F05 /* LoginViewController.swift */,
+				5E05073322143454001C9177 /* MapViewController.swift */,
 				5EE9E76C2213405500369F05 /* TableViewController.swift */,
+				5E050735221444B0001C9177 /* PostInformationViewController.swift */,
 				5EE9E7582212D53C00369F05 /* Main.storyboard */,
 				5EE9E75B2212D53D00369F05 /* Assets.xcassets */,
 				5EE9E75D2212D53D00369F05 /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EE9E7672212DEB700369F05 /* UdacityClient.swift in Sources */,
+				5E050736221444B0001C9177 /* PostInformationViewController.swift in Sources */,
 				5EE9E76D2213405500369F05 /* TableViewController.swift in Sources */,
 				5EE9E7572212D53C00369F05 /* LoginViewController.swift in Sources */,
 				5EE9E769221309C100369F05 /* ParseClient.swift in Sources */,
