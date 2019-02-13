@@ -48,6 +48,13 @@ class PostInformationViewController : UIViewController {
                 
                 return
             }
+            
+            for place in clplacemark! {
+                let coordinate = place.location?.coordinate
+                let longitude = coordinate?.longitude
+                let latitude = coordinate?.latitude
+                
+            }
         }
         
         
