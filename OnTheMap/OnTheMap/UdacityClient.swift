@@ -21,11 +21,14 @@ class UdacityClient {
         
         
         case login
+        case getUserInfo(String)
         
         var stringValue : String {
             switch self {
             case .login :
                 return Endpoints.base + "/session"
+            case .getUserInfo (let userID) :
+                return Endpoints.base + "/users/\(userID)"
             }
         }
         
@@ -79,6 +82,21 @@ class UdacityClient {
             
         }
         task.resume()
+    }
+    
+    class func getUserData(handler : @escaping (Data?, Error?) -> Void){
+        let request = URLRequest(url: self.Endpoints.getUserInfo(UdacityAuth.accountId).url)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil {
+                handler(nil,error)
+            }
+            let range = 5..<data!.count
+            let newData = data?.subdata(in: range)
+            print(String(data: newData!, encoding: .utf8)!)
+        }
+        task.resume()
+        
     }
     
 }

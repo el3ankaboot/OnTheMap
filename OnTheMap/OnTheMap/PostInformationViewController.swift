@@ -20,6 +20,7 @@ class PostInformationViewController : UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    var studentVar: Student!
     
     @IBAction func findLocation(_ sender: Any) {
         guard !((locationText.text?.isEmpty)!) else {
@@ -54,9 +55,57 @@ class PostInformationViewController : UIViewController {
                 let longitude = coordinate?.longitude
                 let latitude = coordinate?.latitude
                 
+                UdacityClient.getUserData(handler: { (result, error) in
+                    if let error = error {
+                        print(error)
+                        return
+                    }
+                    else {
+                        var student = Student(firstName: "", lastName: "", latitude: latitude!, longitude: longitude!, mapString: (self.locationText?.text)!, mediaURL: (self.urlText?.text)!)
+                        
+                        do {
+                            
+                            let json = try JSONSerialization.jsonObject(with: result!, options: []) as! [String: Any]
+                            if let error = json["error"]{
+                                print(error)
+                                return
+                            }
+                            
+                            if let firstName = json["first_name"]{
+                                student.firstName = firstName as! String
+                            }
+                            if let lastName = json["last_name"]{
+                               student.lastName = lastName as! String
+                            }
+                            
+                            self.studentVar = student
+                            
+                        }
+                        catch {
+                            print(error)
+                        }
+                        print(result)
+                    }
+                })
+                
+                self.performSegue(withIdentifier: "findLocationSegue" , sender: self)
+                
             }
+            
+            
+            
         }
+   
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      
+        let controller = segue.destination as! AddLocationViewController
+        controller.theStudent = studentVar
         
         
     }
+    
+   
 }

@@ -12,4 +12,8 @@ import MapKit
 
 class AddLocationViewController : UIViewController {
     
+    var theStudent : Student!
+    
+    
+    
 }

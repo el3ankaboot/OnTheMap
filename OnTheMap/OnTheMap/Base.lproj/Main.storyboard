@@ -277,6 +277,7 @@
                     <connections>
                         <outlet property="locationText" destination="Sok-2u-SvV" id="KmW-5E-6yA"/>
                         <outlet property="urlText" destination="E20-Nn-5Tw" id="BGb-y6-Pee"/>
+                        <segue destination="egJ-Pe-ah8" kind="presentation" identifier="findLocationSegue" id="lUu-Zs-wIB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2f-Rr-9MT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -286,7 +287,7 @@
         <!--Add Location View Controller-->
         <scene sceneID="h56-jN-aX9">
             <objects>
-                <viewController id="egJ-Pe-ah8" customClass="AddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocationViewController" id="egJ-Pe-ah8" customClass="AddLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hRF-Cz-vZ4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -294,13 +295,24 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uMm-hH-I9d">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVK-iH-9BW">
+                                <rect key="frame" x="0.0" y="472" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="FINISH">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uMm-hH-I9d" firstAttribute="leading" secondItem="ehJ-Ge-8uI" secondAttribute="leading" id="0KY-nI-gtO"/>
+                            <constraint firstItem="kVK-iH-9BW" firstAttribute="width" secondItem="uMm-hH-I9d" secondAttribute="width" id="0qH-6b-anz"/>
+                            <constraint firstItem="kVK-iH-9BW" firstAttribute="top" secondItem="ehJ-Ge-8uI" secondAttribute="top" constant="452" id="5l1-Su-CZM"/>
+                            <constraint firstItem="kVK-iH-9BW" firstAttribute="leading" secondItem="ehJ-Ge-8uI" secondAttribute="leading" id="IhE-Cn-zTp"/>
                             <constraint firstItem="uMm-hH-I9d" firstAttribute="top" secondItem="ehJ-Ge-8uI" secondAttribute="top" id="Qwy-Gf-ea3"/>
                             <constraint firstItem="uMm-hH-I9d" firstAttribute="bottom" secondItem="ehJ-Ge-8uI" secondAttribute="bottom" id="ZX5-KL-8gC"/>
                             <constraint firstItem="uMm-hH-I9d" firstAttribute="trailing" secondItem="ehJ-Ge-8uI" secondAttribute="trailing" id="pXX-Qe-o4H"/>
+                            <constraint firstAttribute="trailing" secondItem="kVK-iH-9BW" secondAttribute="trailing" id="uns-rK-9rr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ehJ-Ge-8uI"/>
                     </view>

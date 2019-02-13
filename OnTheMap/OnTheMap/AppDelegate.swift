@@ -54,6 +54,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func putLocation (student: Student , handler: @escaping (Data?, Error?)-> Void){
+        ParseClient.putStudentLocation(student: student) { (data, error) in
+            guard let data = data else {
+                handler(nil,error)
+                return
+            }
+            handler(data,nil)
+        }
+    }
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
